@@ -30,7 +30,7 @@ Supported original ELF SHA-256: `62d6380687050d425b0e3d5e58a2c54ec23909ef9ed8be8
 
 ## Validation and limitations
 
-Tested on an Ally Z1 Extreme. Steam relaunch restored the automatic profile. A live race showed km/h and five consecutive samples at 60 FPS with 3× rendering. The standalone tests cover speed-dependent steering, all eleven profile blocks, an independently changed card and a truncated snapshot. Individual unlock conditions and all tracks have yet to be tested. First visits to new scenes may pause for compilation.
+The player confirmed that version 0.1.2 made fast corners more stable with the Ally Z1 Extreme’s built-in stick. Steam relaunch restored the automatic profile. A live race showed km/h and five consecutive samples at 60 FPS with 3× rendering. The standalone tests cover speed-dependent steering, all eleven profile blocks, an independently changed card and a truncated snapshot. Individual unlock conditions and all tracks have yet to be tested. First visits to new scenes may pause for compilation.
 
 ## Distribution
 
