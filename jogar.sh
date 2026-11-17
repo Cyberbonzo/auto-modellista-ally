@@ -8,8 +8,10 @@ flock -n 9 || exit 0
 export SDL_JOYSTICK_HIDAPI=0
 export SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS=1
 export PS2_VU_CXX="$root/source/live-compiler.sh"
-export PS2_SCALE=2
-export PS2_LOOK=0
+export AM_PROFILE_PATH="$root/saves/garage-progress.bin"
+export PS2_SCALE=3
+export PS2_LOOK=4
+export PS2_SHARP_2D=2
 export PS2_NO_BEEP=1
 export PS2_WINDOW_TITLE="Auto Modellista"
 unset LD_PRELOAD

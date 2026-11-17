@@ -2,7 +2,7 @@
 from pathlib import Path
 import sys,shutil
 p=Path(sys.argv[1])/'host/window.cpp'
-t=p.read_text()
+t=p.read_text().replace('32767.0), dt);', '32767.0), dt, ally_game::road_speed.load(std::memory_order_relaxed));')
 pairs={
  '#include "window.hpp"':'#include "window.hpp"\n#include "ally_steering.hpp"',
  'trigger(SDL_CONTROLLER_AXIS_TRIGGERLEFT, kL2, l2);':'trigger(SDL_CONTROLLER_AXIS_TRIGGERLEFT, kSquare, l2);',
@@ -16,7 +16,7 @@ pairs={
             const double dt = previous[port] ? double(now_ticks - previous[port]) / SDL_GetPerformanceFrequency() : 1.0 / 60.0;
             previous[port] = now_ticks;
             const int raw = SDL_GameControllerGetAxis(pad, SDL_CONTROLLER_AXIS_LEFTX);
-            lx = steering[port].axis(double(raw) / (raw < 0 ? 32768.0 : 32767.0), dt);
+            lx = steering[port].axis(double(raw) / (raw < 0 ? 32768.0 : 32767.0), dt, ally_game::road_speed.load(std::memory_order_relaxed));
         }''',
 }
 for old,new in pairs.items():
@@ -25,4 +25,4 @@ for old,new in pairs.items():
     t=t.replace(old,new)
 p.write_text(t)
 shutil.copy2(Path(__file__).with_name('ally_steering.hpp'),p.with_name('ally_steering.hpp'))
-print('RT -> Cross, LT -> Square; steering: 8% dead zone, exponent 1.9, 55 ms smoothing')
+print('RT -> Cross, LT -> Square; steering: speed-sensitive steering and fast recentering')
