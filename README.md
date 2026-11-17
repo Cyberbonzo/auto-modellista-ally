@@ -1,6 +1,6 @@
 # Auto Modellista — Ally companion
 
-Version **0.1.0**. Linux build and launch helpers for a user-supplied **PS2 USA SLUS-20642** disc on ROG Ally/Bazzite.
+Version **0.1.1**. Linux build and launch helpers for a user-supplied **PS2 USA SLUS-20642** disc on ROG Ally/Bazzite.
 
 Uses [ps2-native-recomp](https://github.com/exoteric33/ps2-native-recomp) revision `15a50b77a526f779befa7addb820478485947bdc`. The PS2 main CPU code is translated to native code; the runtime implements the remaining console hardware. This is not a complete game-engine rewrite. The resulting Linux executable uses Vulkan, without Proton.
 
@@ -9,10 +9,11 @@ Uses [ps2-native-recomp](https://github.com/exoteric33/ps2-native-recomp) revisi
 - Fullscreen 16:9 with a gameplay field-of-view correction from nemesis2000, maintained by PCSX2.
 - 2× internal rendering; this does not mean all original assets render at native 1080p.
 - Left stick steering, RT pressure-sensitive Cross/throttle, LT pressure-sensitive Square/brake, A confirm, B back and Menu/Start for the game pause.
+- Progressive steering: 8% dead zone, exponent 1.9, 55 ms smoothing. About 23% steering at half stick travel; full steering remains available at the endpoints. The standalone C++ test covers center, symmetry, monotonicity, frame-rate independence, reversal and neutral return.
 - Select, then Start (View, then Menu on the Ally) opens the upstream pause and quick-save menu.
 - Persistent native memory-card saves and compilation caches.
 
-The [widescreen patch](https://github.com/PCSX2/pcsx2_patches/blob/efd872286d9b2ae77530b82fbc56a3110caad960/patches/SLUS-20642_6D76177B.pnach) declares gameplay support, without separate fixes for menus, videos or replays. Preparation downloads the pinned patch and checks its Git blob identity. The original disc remains unchanged.
+The [widescreen patch](https://github.com/PCSX2/pcsx2_patches/blob/efd872286d9b2ae77530b82fbc56a3110caad960/patches/SLUS-20642_6D76177B.pnach) declares gameplay support, without separate fixes for menus, videos or replays. The race view was visually checked: car proportions are retained and more scenery is visible at the sides. HUD and menus still widen in this mode. Preparation downloads the pinned patch and checks its Git blob identity. The original disc remains unchanged.
 
 ## Build
 

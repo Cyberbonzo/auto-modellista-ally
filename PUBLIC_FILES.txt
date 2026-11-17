@@ -5,7 +5,9 @@ README.md
 VERSION
 jogar.sh
 source/Containerfile
+source/ally_steering.hpp
 source/apply-controls.py
 source/build-linux.sh
 source/live-compiler.sh
 source/prepare.py
+source/test_steering.cpp

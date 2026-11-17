@@ -9,3 +9,5 @@
 !/source/*.py
 !/source/*.sh
 !/source/Containerfile
+!/source/*.hpp
+!/source/*.cpp
