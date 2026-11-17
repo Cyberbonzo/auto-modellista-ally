@@ -1,0 +1,3 @@
+ARG BUILD_BASE=registry.fedoraproject.org/fedora:45
+FROM ${BUILD_BASE}
+RUN dnf install -y --setopt=install_weak_deps=False clang cmake ninja-build gcc-c++ git python3 curl unzip SDL2-devel && dnf clean all

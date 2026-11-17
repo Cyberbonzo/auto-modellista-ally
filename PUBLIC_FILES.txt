@@ -1,0 +1,11 @@
+.gitignore
+LICENSE
+PUBLIC_FILES.txt
+README.md
+VERSION
+jogar.sh
+source/Containerfile
+source/apply-controls.py
+source/build-linux.sh
+source/live-compiler.sh
+source/prepare.py

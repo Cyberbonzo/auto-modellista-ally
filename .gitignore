@@ -1,0 +1,11 @@
+*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/VERSION
+!/PUBLIC_FILES.txt
+!/jogar.sh
+!/source/
+!/source/*.py
+!/source/*.sh
+!/source/Containerfile
